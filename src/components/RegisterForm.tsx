@@ -106,10 +106,14 @@ const RegisterForm = () => {
                 </div>
               </div>
               
-              <Button type="submit" className="w-full h-12 text-lg" disabled={loading}>
-                {loading
-                  ? "Inscription en cours..."
-                  : `S'inscrire (${option === "all" ? "7500" : "2500"} FCFA)`}
+              <Button 
+                  style={{fontFamily:'Montserrat'}}
+                  type="submit" 
+                  className="w-full h-12 text-lg" 
+                  disabled={loading}>
+                  {loading
+                    ? "Inscription en cours..."
+                    : `S'inscrire (${option === "all" ? "7500" : "2500"} FCFA)`}
               </Button>
             </form>
           </Card>
