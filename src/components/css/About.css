@@ -1,0 +1,17 @@
+@font-face 
+{
+    font-family: 'Horizon';
+    src: url('../fonts/Hellbone-Demo.otf');
+}
+
+h1, h2, h3, h4, p, span
+{
+    font-family: 'Montserrat';
+}
+
+strong
+{
+    font-family: 'Horizon';
+    font-size: 25px;
+    color: #ff8c00 ;
+}
