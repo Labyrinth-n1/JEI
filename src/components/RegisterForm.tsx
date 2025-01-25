@@ -68,26 +68,28 @@ const RegisterForm = () => {
               
               <div className="inputGroup space-y-4">
                 <p className="font-medium">Options d'inscription</p>
-                <div className="grid gap-4">
+                <div className="">
                   <Button
+                    style={{fontSize: '13px'}}
                     type="button"
                     variant={option === "all" ? "default" : "outline"}
-                    className={`h-12 w-full ${
+                    className={`w-full h-12 text-lg ${
                       option === "all" ? "bg-primary text-white" : "hover:border-primary hover:text-primary"
                     }`}
                     onClick={() => setOption("all")}
                   >
-                    Je veux tout payer : Concert + Excursion (7500 FCFA)
+                    Concert + Excursion (7500 FCFA)
                   </Button>
                   <Button
+                    style={{fontSize: '13px'}}
                     type="button"
                     variant={option === "concert" ? "default" : "outline"}
-                    className={`h-12 w-full ${
+                    className={`w-full h-12 text-lg ${
                       option === "concert" ? "bg-primary text-white" : "hover:border-primary hover:text-primary"
                     }`}
                     onClick={() => setOption("concert")}
                   >
-                    Je veux juste venir au concert (2500 FCFA)
+                    Concert (2500 FCFA)
                   </Button>
                 </div>
               </div>
@@ -107,7 +109,7 @@ const RegisterForm = () => {
               </div>
               
               <Button 
-                  style={{fontFamily:'Montserrat'}}
+                  style={{fontFamily:'Montserrat', fontSize: '13px'}}
                   type="submit" 
                   className="w-full h-12 text-lg" 
                   disabled={loading}>
