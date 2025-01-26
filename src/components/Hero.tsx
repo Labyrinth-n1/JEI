@@ -53,7 +53,8 @@ const Hero = () => {
         <div className="text-center max-w-3xl mx-auto">
           <h1 
               style={{
-                marginTop:'80px'
+                marginTop:'80px',
+                fontSize:'40px'
               }}
               id="animated-title" 
               className="title">

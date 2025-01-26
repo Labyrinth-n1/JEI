@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import logojei from "../assets/images/jei.png"
 import { useNavigate } from "react-router-dom";
 import "./css/Navigation.css"
+import { Calendar, HomeIcon } from "lucide-react";
 
 const Navigation = () => {
 
@@ -11,8 +12,9 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { label: "Accueil", href: "#accueil" },
-    { label: "Programme", href: "#programme" },
+    { label: "Accueil", href: "#accueil", icon:HomeIcon},
+    { label: "Programme", href: "#programme", icon: Calendar },
+    
   ];
 
   return (
@@ -36,10 +38,15 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <a
+                style={{display:'flex'}}
                 key={item.label}
                 href={item.href}
                 className="text-black-600 hover:text-primary transition-colors font-medium"
-              >
+              > 
+                <item.icon 
+                    style={{position:'relative', bottom:'-5px', left:'-4px', color:'orange'}}
+                    className="h-3 w-3 text-orange" 
+                />
                 {item.label}
               </a>
             ))}
