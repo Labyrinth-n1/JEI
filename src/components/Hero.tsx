@@ -54,16 +54,20 @@ const Hero = () => {
           <h1 
               style={{
                 marginTop:'80px',
-                fontSize:'40px'
+                fontSize:'40px',
+                padding:'.5rem',
+                position: 'relative',
+                bottom:'-20px'
+
               }}
               id="animated-title" 
               className="title">
               <span className="gradient">Journée de </span>
-              <span className="gradient">l'Étudiant en Informatique 🎊</span>
+              <span className="gradient">l'Étudiant en Informatique </span>
           </h1>
 
           <div
-            style={{marginTop: '30px'}} 
+            style={{position:'relative', bottom:'-10px'}} 
             className="flex flex-col sm:flex-row justify-center gap-4  ">
 
             <a href="#programme">
@@ -71,10 +75,11 @@ const Hero = () => {
                   size="lg" 
                   className="gap-2 text-lg h-14 px-8"
                   style={{
-                    backgroundColor: "#df8517", 
+                    backgroundColor: "#0e885a", 
                     fontFamily:"Montserrat",
                     borderRadius: '40px', 
-                    fontSize: '15px'
+                    fontSize: '15px',
+                    boxShadow:'0 2px 5px rgba(0,0,0,0.5)'
                   }}
                 >
                   <Calendar className="w-5 h-5 icon" />
@@ -90,7 +95,8 @@ const Hero = () => {
                     fontFamily:"Montserrat",
                     borderRadius: '40px', 
                     fontSize: '15px',
-                    border: '.5px solid #0e885a'
+                    border: '.5px solid #0e885a',
+                    boxShadow:'0 2px 5px rgba(0,0,0,0.5)'
                   }}
             >
               <Users className="w-5 h-5 icon" />
@@ -100,8 +106,8 @@ const Hero = () => {
           </div>
 
           <div 
-              style={{marginTop:'40px'}}
-              className="flex justify-center gap-12 text-sm text-gray-500">
+              style={{marginTop:'50px'}}
+              className="flex justify-center gap-12 text-sm text-black-500">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               <span>26-28 Février 2025</span>

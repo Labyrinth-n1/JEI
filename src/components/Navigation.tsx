@@ -35,13 +35,15 @@ const Navigation = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div 
+              style={{position:'relative', left:'-20px'}}
+              className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <a
                 style={{display:'flex'}}
                 key={item.label}
                 href={item.href}
-                className="text-black-600 hover:text-primary transition-colors font-medium"
+                className="text-black-800 hover:text-primary transition-colors font-regular"
               > 
                 <item.icon 
                     style={{position:'relative', bottom:'-5px', left:'-4px', color:'orange'}}
