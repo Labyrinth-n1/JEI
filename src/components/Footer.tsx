@@ -8,7 +8,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">
+            <h3
+              style={{fontFamily:'Montserrat'}} 
+              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">
               JEI 2025
             </h3>
             <p className="text-gray-600 leading-relaxed">
@@ -17,7 +19,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6">Contact</h3>
+            <h3 
+               style={{fontFamily:'Montserrat'}} 
+               className="font-bold text-lg mb-6">Contact</h3>
             <div className="space-y-4">
               {/* Lien vers WhatsApp */}
               <a
@@ -40,7 +44,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6">Suivez-nous</h3>
+            <h3 
+              style={{fontFamily:'Montserrat'}} 
+               className="font-bold text-lg mb-6">Suivez-nous</h3>
             <div className="flex gap-6">
               <a
                 href="#"
