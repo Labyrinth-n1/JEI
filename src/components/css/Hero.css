@@ -3,10 +3,7 @@
     src: url('../fonts/Horizon-PersonalUse.otf');
 }
 
-.hero 
-{
-   background-image: url('../../assets/images/aesth1.jpg');
-}
+
 
 .title 
 {
@@ -20,17 +17,7 @@
     overflow: hidden;
 }
 
-  /* Appliquer le dégradé festif */
-  /*
-  .gradient {
-    display: inline-block;
-    background: linear-gradient(90deg, #ff0080, #ff8c00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 2.5rem;
-  }
-*/
+
   /* Animation pour chaque lettre */
   .title span span {
     display: inline-block;
@@ -55,12 +42,3 @@
   .title span {
     animation: sparkle 2s infinite;
   }
-/*
-  @keyframes sparkle {
-    0%, 100% {
-      text-shadow: 0 0 5px  #df8517 , 0 0 10px #ff8c00, 0 0 20px #0e885a;
-    }
-    50% {
-      text-shadow: 0 0 15px #ff8c00, 0 0 25px #ff0080, 0 0 30px #ff8c00;
-    }
-  }*/

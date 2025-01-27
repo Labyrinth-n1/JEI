@@ -7,6 +7,10 @@ import "./css/About.css";
 
 import aesth1 from '../assets/images/aesth.jpg';
 import aesth2 from '../assets/images/aesth2.jpg';
+import hackaton from '../assets/images/hackaton.png';
+import basket from '../assets/images/basket.png';
+import concert from '../assets/images/concert.png';
+import caravane from '../assets/images/caravane.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +25,8 @@ const About = () => {
       description: "Développez vos compétences techniques",
       color: "#0e885a",
       icolor: " #fc7f07",
-      bg: aesth2,
+      bg: aesth1,
+      img: hackaton,
     },
     {
       icon: Users,
@@ -29,7 +34,8 @@ const About = () => {
       description: "Football et basketball inter-filières",
       color: " #fc7f07",
       icolor: "#0e885a",
-      bg: aesth1
+      bg: aesth2,
+      img: basket,
     },
     {
       icon: Music,
@@ -37,7 +43,8 @@ const About = () => {
       description: "Animations et prestations musicales",
       color: "#0e885a",
       icolor: "#fc7f07",
-      bg: aesth2
+      bg: aesth1,
+      img: concert,
     },
     {
       icon: MapPin,
@@ -45,7 +52,8 @@ const About = () => {
       description: "Journée détente à Casa del Papa",
       color: " #fc7f07",
       icolor: " #0e885a",
-      bg: aesth1
+      bg: aesth2,
+      img: caravane,
     },
   ];
 
@@ -121,7 +129,7 @@ const About = () => {
           >
             Juste... Un événement magique, extra, annuel où étudiants, experts
             et passionnés de technologie se rassemblent pour{" "}
-            <strong>chiller,</strong> créer et se détendre !!
+            apprendre, créer et se détendre !!
           </p>
         </div>
 
@@ -139,21 +147,26 @@ const About = () => {
               key={index}
               className="card p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 mb-6">
-                <feature.icon
-                  color={feature.icolor}
-                  className="h-7 w-7 text-primary"
-                />
+              <div className="inline-flex h-100 w-100 items-center justify-center ">
+                <img src={feature.img} alt="" />
               </div>
               <h3
                 style={{
                   fontFamily: "Montserrat",
+                  position:'relative',
+                  top:'-30px',
                 }}
                 className="text-xl font-semibold mb-3"
               >
                 {feature.title}
               </h3>
-              <p className="text-gray-800 leading-relaxed">
+              <p
+                  style={{
+                    position:'relative',
+                    top:'-50px',
+                    padding:'1rem'
+                  }}
+                  className="text-gray-800 leading-relaxed">
                 {feature.description}
               </p>
             </Card>

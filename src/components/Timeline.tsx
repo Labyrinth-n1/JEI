@@ -76,7 +76,7 @@ const Timeline = () => {
 
   useEffect(() => {
     // Animation pour les cartes
-    const cards = timelineRef.current.querySelectorAll(".card");
+    const cards = timelineRef.current.querySelectorAll(".car");
     gsap.fromTo(
       cards,
       { opacity: 0, y: 50 },
@@ -155,7 +155,7 @@ const Timeline = () => {
                 boxShadow: "0 2px 5px rgba(0,0,0,0.5)",
               }}
               key={day.day}
-              className="card p-8 hover:shadow-lg transition-all duration-300 hover:translate-y-1"
+              className="car p-8 hover:shadow-lg transition-all duration-300 hover:translate-y-1"
             >
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 mb-6">
                 <Calendar className="h-6 w-6 text-primary" />

@@ -6,43 +6,7 @@ import './css/Hero.css'
 
 const Hero = () => {
 
-  useEffect(() => {
-    // Animation au chargement de la page
-    const icons = document.querySelectorAll(".icon");
-    
-    gsap.fromTo(
-      icons,
-      { rotation: -360, x: -100, opacity: 0 },  // Position initiale
-      {
-        rotation: 360, 
-        x: 0, 
-        opacity: 1, 
-        duration: 2, 
-        stagger: 0.3, 
-        ease: "back.out(2)"
-      }
-    );
-
-    // Animation lors du scroll
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      icons.forEach(icon => {
-        gsap.to(icon, {
-          rotation: scrollY > 100 ? 360 : 0, 
-          y: scrollY > 100 ? 100 : 0,
-          duration: 1,
-          ease: "power2.out",
-        });
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+  
   return (
     <div 
           style={{backgroundColor: ' #ffecd5'}}

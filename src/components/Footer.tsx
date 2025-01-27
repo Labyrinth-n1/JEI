@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Mail, Phone } from "lucide-react";
-import logojei from '../assets/images/jei.png';
-import './css/Footer.css'
+import logojei from '../assets/images/logo.png';
+import './css/Footer.css';
 
 const Footer = () => {
   return (
@@ -10,8 +10,10 @@ const Footer = () => {
           <div>
             <h3
               style={{fontFamily:'Montserrat'}} 
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">
-              JEI 2025
+              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              <img 
+                style={{width:'80px',height:'80px'}}
+                src={logojei} alt="" />
             </h3>
             <p className="text-gray-600 leading-relaxed">
               Les Journées de l'Étudiant en Informatique, un événement unique pour les passionnés de technologie.

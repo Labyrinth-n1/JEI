@@ -4,29 +4,39 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { CreditCard, Smartphone } from "lucide-react";
-import './css/RegisterForm.css';
+import "./css/RegisterForm.css";
 
 const RegisterForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [option, setOption] = useState("concert"); // Valeur par défaut : "concert"
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]); // Gérer plusieurs options
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Simuler un délai d'envoi
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+
+    const selectedText =
+      selectedOptions.length > 0
+        ? selectedOptions.join(" et ")
+        : "aucune option sélectionnée";
+
     toast({
       title: "Inscription réussie !",
-      description: `Vous avez choisi l'option : ${
-        option === "all" ? "Je veux tout payer" : "Je veux juste venir au concert"
-      }. Vous recevrez un email de confirmation.`,
+      description: `Vous avez choisi : ${selectedText}. Vous recevrez un email de confirmation.`,
     });
-    
+
     setLoading(false);
+  };
+
+  const handleCheckboxChange = (option: string) => {
+    setSelectedOptions((prev) =>
+      prev.includes(option)
+        ? prev.filter((item) => item !== option) // Retirer si déjà sélectionné
+        : [...prev, option] // Ajouter sinon
+    );
   };
 
   return (
@@ -35,7 +45,7 @@ const RegisterForm = () => {
         <div className="max-w-xl mx-auto text-center mb-16">
           <span className="text-primary font-semibold tracking-wider uppercase text-sm">Inscription</span>
           <h2
-            style={{ fontFamily: 'Montserrat', color: "#ff8c00" }} 
+            style={{ fontFamily: "Montserrat", color: "#ff8c00" }}
             className="text-4xl font-bold mt-2 mb-4"
           >
             Rejoignez l'aventure ✈️✨!!
@@ -44,10 +54,10 @@ const RegisterForm = () => {
             Réservez votre place pour trois jours d'innovation et de festivités
           </p>
         </div>
-        
+
         <div className="max-w-md mx-auto">
-          <Card 
-            style={{ boxShadow: '0 2px 5px rgba(0,0,0,0.5)' }}
+          <Card
+            style={{ boxShadow: "0 2px 5px rgba(0,0,0,0.5)" }}
             className="p-8"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -55,67 +65,60 @@ const RegisterForm = () => {
                 <Label htmlFor="name">Nom complet</Label>
                 <Input id="name" className="h-12" required />
               </div>
-              
+
               <div className="inputGroup space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input id="email" type="email" className="h-12" required />
               </div>
-              
+
               <div className="inputGroup space-y-2">
                 <Label htmlFor="phone">Téléphone</Label>
                 <Input id="phone" type="tel" className="h-12" required />
               </div>
-              
+
               <div className="inputGroup space-y-4">
                 <p className="font-medium">Options d'inscription</p>
-                <div className="">
-                  <Button
-                    style={{fontSize: '13px'}}
-                    type="button"
-                    variant={option === "all" ? "default" : "outline"}
-                    className={`w-full h-12 text-lg ${
-                      option === "all" ? "bg-primary text-white" : "hover:border-primary hover:text-primary"
-                    }`}
-                    onClick={() => setOption("all")}
-                  >
-                    Concert + Excursion (7500 FCFA)
-                  </Button>
-                  <Button
-                    style={{fontSize: '13px'}}
-                    type="button"
-                    variant={option === "concert" ? "default" : "outline"}
-                    className={`w-full h-12 text-lg ${
-                      option === "concert" ? "bg-primary text-white" : "hover:border-primary hover:text-primary"
-                    }`}
-                    onClick={() => setOption("concert")}
-                  >
-                    Concert (2500 FCFA)
-                  </Button>
+                <div>
+                  <div className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      id="concert"
+                      value="Concert (2500 FCFA)"
+                      checked={selectedOptions.includes("Concert (2500 FCFA)")}
+                      onChange={() =>
+                        handleCheckboxChange("Concert (2500 FCFA)")
+                      }
+                      className="h-5 w-5"
+                    />
+                    <Label htmlFor="concert">Concert (2500 FCFA)</Label>
+                  </div>
+                  <div className="flex items-center space-x-3 mt-4">
+                    <input
+                      type="checkbox"
+                      id="excursion"
+                      value="Excursion (5000 FCFA)"
+                      checked={selectedOptions.includes("Excursion")}
+                      onChange={() =>
+                        handleCheckboxChange("Excursion (5000 FCFA)")
+                      }
+                      className="h-5 w-5"
+                    />
+                    <Label htmlFor="excursion">
+                      Excursion (7500 FCFA)
+                    </Label>
+                  </div>
                 </div>
               </div>
-              
-              <div className="pt-6">
-                <p className="font-medium mb-4">Modes de paiement</p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Button variant="outline" className="h-24 flex flex-col items-center justify-center gap-2 hover:border-primary hover:text-primary">
-                    <Smartphone className="h-8 w-8" />
-                    <span>Mobile Money</span>
-                  </Button>
-                  <Button variant="outline" className="h-24 flex flex-col items-center justify-center gap-2 hover:border-primary hover:text-primary">
-                    <CreditCard className="h-8 w-8" />
-                    <span>Carte bancaire</span>
-                  </Button>
-                </div>
-              </div>
-              
-              <Button 
-                  style={{fontFamily:'Montserrat', fontSize: '13px'}}
-                  type="submit" 
-                  className="w-full h-12 text-lg" 
-                  disabled={loading}>
-                  {loading
-                    ? "Inscription en cours..."
-                    : `S'inscrire (${option === "all" ? "7500" : "2500"} FCFA)`}
+
+              <Button
+                style={{ fontFamily: "Montserrat", fontSize: "13px" }}
+                type="submit"
+                className="w-full h-12 text-lg"
+                disabled={loading}
+              >
+                {loading
+                  ? "Inscription en cours..."
+                  : `S'inscrire (${selectedOptions.length > 0 ? selectedOptions.join(" + ") : "0"})`}
               </Button>
             </form>
           </Card>
