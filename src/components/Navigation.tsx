@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logojei from "../assets/images/jei.png"
+import logojei from "../assets/images/logo.png"
 import { useNavigate } from "react-router-dom";
 import "./css/Navigation.css"
 import { Calendar, HomeIcon } from "lucide-react";
